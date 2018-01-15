@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.computermusic.android.treasurehunt.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+
+    <TextView
+        android:id="@+id/txt_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Treasure"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="40sp"
+        android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/btm_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set"
+            android:layout_gravity="center"
+            android:onClick="setTreasure"/>
+
+        <TextView
+            android:id="@+id/txt_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start The Hunt"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"
+            android:textSize="40sp"
+            android:visibility="invisible"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/btn_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start"
+            android:visibility="invisible"
+            android:layout_gravity="center"
+            android:onClick="StartGame"/>
+
+        <TextView
+            android:id="@+id/txt_additional"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="100dp"
+            android:textSize="20sp"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/btn_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stop Game"
+            android:onClick="stopGame"
+            android:visibility="invisible"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
