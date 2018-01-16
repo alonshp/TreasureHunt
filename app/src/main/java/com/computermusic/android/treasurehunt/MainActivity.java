@@ -30,6 +30,15 @@ public class MainActivity extends AppCompatActivity {
     private PerfectLoopMediaPlayer perfectLoopMediaPlayer1 = null;
     private PerfectLoopMediaPlayer perfectLoopMediaPlayer2 = null;
     private PerfectLoopMediaPlayer perfectLoopMediaPlayer3 = null;
+    private PerfectLoopMediaPlayer perfectLoopMediaPlayer4 = null;
+    private PerfectLoopMediaPlayer perfectLoopMediaPlayer5 = null;
+    private PerfectLoopMediaPlayer perfectLoopMediaPlayer6 = null;
+    private PerfectLoopMediaPlayer perfectLoopMediaPlayer7 = null;
+    private PerfectLoopMediaPlayer perfectLoopMediaPlayer8 = null;
+    private PerfectLoopMediaPlayer perfectLoopMediaPlayer9 = null;
+    private PerfectLoopMediaPlayer perfectLoopMediaPlayer10 = null;
+
+    private PerfectLoopMediaPlayer perfectLoopMediaPlayer11 = null;
 
 
     @Override
@@ -43,9 +52,20 @@ public class MainActivity extends AppCompatActivity {
             showAlert();
         }
 
-        perfectLoopMediaPlayer1 = PerfectLoopMediaPlayer.create(this, R.raw.percussion);
-        perfectLoopMediaPlayer2 = PerfectLoopMediaPlayer.create(this, R.raw.piano);
-        perfectLoopMediaPlayer3 = PerfectLoopMediaPlayer.create(this, R.raw.violin);
+        perfectLoopMediaPlayer1 = PerfectLoopMediaPlayer.create(this, R.raw.basicbeat1);
+        perfectLoopMediaPlayer2 = PerfectLoopMediaPlayer.create(this, R.raw.piano2);
+        perfectLoopMediaPlayer3 = PerfectLoopMediaPlayer.create(this, R.raw.stringslow3);
+        perfectLoopMediaPlayer4 = PerfectLoopMediaPlayer.create(this, R.raw.stringshigh4);
+        perfectLoopMediaPlayer5 = PerfectLoopMediaPlayer.create(this, R.raw.drums5);
+        perfectLoopMediaPlayer6 = PerfectLoopMediaPlayer.create(this, R.raw.cellos6);
+        perfectLoopMediaPlayer7 = PerfectLoopMediaPlayer.create(this, R.raw.brass7);
+        perfectLoopMediaPlayer8 = PerfectLoopMediaPlayer.create(this, R.raw.crash8);
+        perfectLoopMediaPlayer9 = PerfectLoopMediaPlayer.create(this, R.raw.vocal9);
+        perfectLoopMediaPlayer10 = PerfectLoopMediaPlayer.create(this, R.raw.guitars10);
+
+        // TODO: 16/01/2018 finish music
+//        perfectLoopMediaPlayer11 = PerfectLoopMediaPlayer.create(this, R.raw.piano);
+
     }
 
     private boolean isLocationEnabled() {
@@ -94,6 +114,8 @@ public class MainActivity extends AppCompatActivity {
                 showAlert();
                 return;
             }
+            findViewById(R.id.btm_set).setVisibility(View.INVISIBLE);
+            ((TextView)findViewById(R.id.txt_set)).setText("Loading...");
 
             locationManager.requestLocationUpdates(provider, 1000, 0, locationListenerBest);
         }
@@ -126,8 +148,24 @@ public class MainActivity extends AppCompatActivity {
             perfectLoopMediaPlayer1.start();
             perfectLoopMediaPlayer2.start();
             perfectLoopMediaPlayer3.start();
-            perfectLoopMediaPlayer2.setVolume(0, 0);
+            perfectLoopMediaPlayer4.start();
+            perfectLoopMediaPlayer5.start();
+            perfectLoopMediaPlayer6.start();
+            perfectLoopMediaPlayer7.start();
+            perfectLoopMediaPlayer8.start();
+            perfectLoopMediaPlayer9.start();
+            perfectLoopMediaPlayer10.start();
+
+            perfectLoopMediaPlayer2.setVolume(0,0);
             perfectLoopMediaPlayer3.setVolume(0,0);
+            perfectLoopMediaPlayer4.setVolume(0,0);
+            perfectLoopMediaPlayer5.setVolume(0,0);
+            perfectLoopMediaPlayer6.setVolume(0,0);
+            perfectLoopMediaPlayer7.setVolume(0,0);
+            perfectLoopMediaPlayer8.setVolume(0,0);
+            perfectLoopMediaPlayer9.setVolume(0,0);
+            perfectLoopMediaPlayer10.setVolume(0,0);
+
         }
 
 
@@ -140,11 +178,17 @@ public class MainActivity extends AppCompatActivity {
         perfectLoopMediaPlayer1.stop();
         perfectLoopMediaPlayer2.stop();
         perfectLoopMediaPlayer3.stop();
+        perfectLoopMediaPlayer4.stop();
+        perfectLoopMediaPlayer5.stop();
+        perfectLoopMediaPlayer6.stop();
+        perfectLoopMediaPlayer7.stop();
+        perfectLoopMediaPlayer8.stop();
+        perfectLoopMediaPlayer9.stop();
+        perfectLoopMediaPlayer10.stop();
+
 
         // update UI
         findViewById(R.id.btn_stop).setVisibility(View.INVISIBLE);
-        findViewById(R.id.txt_set).setVisibility(View.VISIBLE);
-        findViewById(R.id.btm_set).setVisibility(View.VISIBLE);
     }
 
     private final LocationListener locationListenerBest = new LocationListener() {
@@ -156,13 +200,13 @@ public class MainActivity extends AppCompatActivity {
                     if (TreasureSet) {
                         TreasureLocation = location;
                         counter++;
+                        ((TextView)findViewById(R.id.txt_set)).setText(counter*10 + "%");
                         if (counter == 10) {
                             locationManager.removeUpdates(locationListenerBest);
                             TreasureSet = false;
 
                             // update UI
                             findViewById(R.id.txt_set).setVisibility(View.INVISIBLE);
-                            findViewById(R.id.btm_set).setVisibility(View.INVISIBLE);
                             findViewById(R.id.txt_play).setVisibility(View.VISIBLE);
                             findViewById(R.id.btn_play).setVisibility(View.VISIBLE);
                         }
@@ -171,22 +215,114 @@ public class MainActivity extends AppCompatActivity {
                         ((TextView)findViewById(R.id.txt_additional)).setText(currDistance + "");
                         // todo update music
                         if (currDistance < 10){
-                            perfectLoopMediaPlayer2.setVolume(1, 1);
+                            perfectLoopMediaPlayer2.setVolume(1,1);
                             perfectLoopMediaPlayer3.setVolume(1,1);
+                            perfectLoopMediaPlayer4.setVolume(1,1);
+                            perfectLoopMediaPlayer5.setVolume(1,1);
+                            perfectLoopMediaPlayer6.setVolume(1,1);
+                            perfectLoopMediaPlayer7.setVolume(0.5f,0.5f);
+                            perfectLoopMediaPlayer8.setVolume(1,1);
+                            perfectLoopMediaPlayer9.setVolume(1,1);
+                            perfectLoopMediaPlayer10.setVolume(1,1);
                         }
                         else if (currDistance < 20){
-                            perfectLoopMediaPlayer2.setVolume(1, 1);
-                            perfectLoopMediaPlayer3.setVolume(0,0);
+                            perfectLoopMediaPlayer2.setVolume(1,1);
+                            perfectLoopMediaPlayer3.setVolume(1,1);
+                            perfectLoopMediaPlayer4.setVolume(1,1);
+                            perfectLoopMediaPlayer5.setVolume(1,1);
+                            perfectLoopMediaPlayer6.setVolume(1,1);
+                            perfectLoopMediaPlayer7.setVolume(0.5f,0.5f);
+                            perfectLoopMediaPlayer8.setVolume(1,1);
+                            perfectLoopMediaPlayer9.setVolume(1,1);
+                            perfectLoopMediaPlayer10.setVolume(0,0);
                         }
                         else if (currDistance < 30){
-                            perfectLoopMediaPlayer2.setVolume(0, 0);
-                            perfectLoopMediaPlayer3.setVolume(0,0);
+                            perfectLoopMediaPlayer2.setVolume(1,1);
+                            perfectLoopMediaPlayer3.setVolume(1,1);
+                            perfectLoopMediaPlayer4.setVolume(1,1);
+                            perfectLoopMediaPlayer5.setVolume(1,1);
+                            perfectLoopMediaPlayer6.setVolume(1,1);
+                            perfectLoopMediaPlayer7.setVolume(0.5f,0.5f);
+                            perfectLoopMediaPlayer8.setVolume(1,1);
+                            perfectLoopMediaPlayer9.setVolume(0,0);
+                            perfectLoopMediaPlayer10.setVolume(0,0);
                         }
                         else if (currDistance < 40){
-
+                            perfectLoopMediaPlayer2.setVolume(1,1);
+                            perfectLoopMediaPlayer3.setVolume(1,1);
+                            perfectLoopMediaPlayer4.setVolume(1,1);
+                            perfectLoopMediaPlayer5.setVolume(1,1);
+                            perfectLoopMediaPlayer6.setVolume(1,1);
+                            perfectLoopMediaPlayer7.setVolume(0.5f,0.5f);
+                            perfectLoopMediaPlayer8.setVolume(0,0);
+                            perfectLoopMediaPlayer9.setVolume(0,0);
+                            perfectLoopMediaPlayer10.setVolume(0,0);
                         }
                         else if (currDistance < 50){
-
+                            perfectLoopMediaPlayer2.setVolume(1,1);
+                            perfectLoopMediaPlayer3.setVolume(1,1);
+                            perfectLoopMediaPlayer4.setVolume(1,1);
+                            perfectLoopMediaPlayer5.setVolume(1,1);
+                            perfectLoopMediaPlayer6.setVolume(1,1);
+                            perfectLoopMediaPlayer7.setVolume(0,0);
+                            perfectLoopMediaPlayer8.setVolume(0,0);
+                            perfectLoopMediaPlayer9.setVolume(0,0);
+                            perfectLoopMediaPlayer10.setVolume(0,0);
+                        }
+                        else if (currDistance < 60){
+                            perfectLoopMediaPlayer2.setVolume(1,1);
+                            perfectLoopMediaPlayer3.setVolume(1,1);
+                            perfectLoopMediaPlayer4.setVolume(1,1);
+                            perfectLoopMediaPlayer5.setVolume(1,1);
+                            perfectLoopMediaPlayer6.setVolume(0,0);
+                            perfectLoopMediaPlayer7.setVolume(0,0);
+                            perfectLoopMediaPlayer8.setVolume(0,0);
+                            perfectLoopMediaPlayer9.setVolume(0,0);
+                            perfectLoopMediaPlayer10.setVolume(0,0);
+                        }
+                        else if (currDistance < 70){
+                            perfectLoopMediaPlayer2.setVolume(1,1);
+                            perfectLoopMediaPlayer3.setVolume(1,1);
+                            perfectLoopMediaPlayer4.setVolume(1,1);
+                            perfectLoopMediaPlayer5.setVolume(0,0);
+                            perfectLoopMediaPlayer6.setVolume(0,0);
+                            perfectLoopMediaPlayer7.setVolume(0,0);
+                            perfectLoopMediaPlayer8.setVolume(0,0);
+                            perfectLoopMediaPlayer9.setVolume(0,0);
+                            perfectLoopMediaPlayer10.setVolume(0,0);
+                        }
+                        else if (currDistance < 80){
+                            perfectLoopMediaPlayer2.setVolume(1,1);
+                            perfectLoopMediaPlayer3.setVolume(1,1);
+                            perfectLoopMediaPlayer4.setVolume(0,0);
+                            perfectLoopMediaPlayer5.setVolume(0,0);
+                            perfectLoopMediaPlayer6.setVolume(0,0);
+                            perfectLoopMediaPlayer7.setVolume(0,0);
+                            perfectLoopMediaPlayer8.setVolume(0,0);
+                            perfectLoopMediaPlayer9.setVolume(0,0);
+                            perfectLoopMediaPlayer10.setVolume(0,0);
+                        }
+                        else if (currDistance < 90){
+                            perfectLoopMediaPlayer2.setVolume(1,1);
+                            perfectLoopMediaPlayer3.setVolume(0,0);
+                            perfectLoopMediaPlayer4.setVolume(0,0);
+                            perfectLoopMediaPlayer5.setVolume(0,0);
+                            perfectLoopMediaPlayer6.setVolume(0,0);
+                            perfectLoopMediaPlayer7.setVolume(0,0);
+                            perfectLoopMediaPlayer8.setVolume(0,0);
+                            perfectLoopMediaPlayer9.setVolume(0,0);
+                            perfectLoopMediaPlayer10.setVolume(0,0);
+                        }
+                        else if (currDistance < 100){
+                            perfectLoopMediaPlayer2.setVolume(0,0);
+                            perfectLoopMediaPlayer3.setVolume(0,0);
+                            perfectLoopMediaPlayer4.setVolume(0,0);
+                            perfectLoopMediaPlayer5.setVolume(0,0);
+                            perfectLoopMediaPlayer6.setVolume(0,0);
+                            perfectLoopMediaPlayer7.setVolume(0,0);
+                            perfectLoopMediaPlayer8.setVolume(0,0);
+                            perfectLoopMediaPlayer9.setVolume(0,0);
+                            perfectLoopMediaPlayer10.setVolume(0,0);
                         }
                     }
                 }
