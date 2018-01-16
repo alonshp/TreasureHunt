@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     } else {
                         double currDistance = location.distanceTo(TreasureLocation);
-                        ((TextView)findViewById(R.id.txt_additional)).setText(currDistance + "");
+//                        ((TextView)findViewById(R.id.txt_additional)).setText(currDistance + "");
                         // todo update music
                         if (currDistance < 10){
                             perfectLoopMediaPlayer2.setVolume(1,1);
