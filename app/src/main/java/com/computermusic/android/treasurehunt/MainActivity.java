@@ -9,6 +9,7 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.MediaPlayer;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private PerfectLoopMediaPlayer perfectLoopMediaPlayer9 = null;
     private PerfectLoopMediaPlayer perfectLoopMediaPlayer10 = null;
 
-    private PerfectLoopMediaPlayer perfectLoopMediaPlayer11 = null;
+    private MediaPlayer triumphMediaPlayer = null;
 
 
     @Override
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         perfectLoopMediaPlayer10 = PerfectLoopMediaPlayer.create(this, R.raw.guitars10);
 
         // TODO: 16/01/2018 finish music
-//        perfectLoopMediaPlayer11 = PerfectLoopMediaPlayer.create(this, R.raw.piano);
+        triumphMediaPlayer = MediaPlayer.create(this, R.raw.triumph);
 
     }
 
@@ -213,17 +214,22 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         double currDistance = location.distanceTo(TreasureLocation);
 //                        ((TextView)findViewById(R.id.txt_additional)).setText(currDistance + "");
-                        // todo update music
+
                         if (currDistance < 10){
-                            perfectLoopMediaPlayer2.setVolume(1,1);
-                            perfectLoopMediaPlayer3.setVolume(1,1);
-                            perfectLoopMediaPlayer4.setVolume(1,1);
-                            perfectLoopMediaPlayer5.setVolume(1,1);
-                            perfectLoopMediaPlayer6.setVolume(1,1);
-                            perfectLoopMediaPlayer7.setVolume(0.5f,0.5f);
-                            perfectLoopMediaPlayer8.setVolume(1,1);
-                            perfectLoopMediaPlayer9.setVolume(1,1);
-                            perfectLoopMediaPlayer10.setVolume(1,1);
+                            perfectLoopMediaPlayer1.stop();
+                            perfectLoopMediaPlayer2.stop();
+                            perfectLoopMediaPlayer3.stop();
+                            perfectLoopMediaPlayer4.stop();
+                            perfectLoopMediaPlayer5.stop();
+                            perfectLoopMediaPlayer6.stop();
+                            perfectLoopMediaPlayer7.stop();
+                            perfectLoopMediaPlayer8.stop();
+                            perfectLoopMediaPlayer9.stop();
+                            perfectLoopMediaPlayer10.stop();
+
+                            triumphMediaPlayer.start();
+
+                            // TODO: 27/01/2018 show feedback to the user
                         }
                         else if (currDistance < 20){
                             perfectLoopMediaPlayer2.setVolume(1,1);
@@ -234,9 +240,20 @@ public class MainActivity extends AppCompatActivity {
                             perfectLoopMediaPlayer7.setVolume(0.5f,0.5f);
                             perfectLoopMediaPlayer8.setVolume(1,1);
                             perfectLoopMediaPlayer9.setVolume(1,1);
-                            perfectLoopMediaPlayer10.setVolume(0,0);
+                            perfectLoopMediaPlayer10.setVolume(1,1);
                         }
                         else if (currDistance < 30){
+                            perfectLoopMediaPlayer2.setVolume(1,1);
+                            perfectLoopMediaPlayer3.setVolume(1,1);
+                            perfectLoopMediaPlayer4.setVolume(1,1);
+                            perfectLoopMediaPlayer5.setVolume(1,1);
+                            perfectLoopMediaPlayer6.setVolume(1,1);
+                            perfectLoopMediaPlayer7.setVolume(0.5f,0.5f);
+                            perfectLoopMediaPlayer8.setVolume(1,1);
+                            perfectLoopMediaPlayer9.setVolume(1,1);
+                            perfectLoopMediaPlayer10.setVolume(0,0);
+                        }
+                        else if (currDistance < 40){
                             perfectLoopMediaPlayer2.setVolume(1,1);
                             perfectLoopMediaPlayer3.setVolume(1,1);
                             perfectLoopMediaPlayer4.setVolume(1,1);
@@ -247,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
                             perfectLoopMediaPlayer9.setVolume(0,0);
                             perfectLoopMediaPlayer10.setVolume(0,0);
                         }
-                        else if (currDistance < 40){
+                        else if (currDistance < 50){
                             perfectLoopMediaPlayer2.setVolume(1,1);
                             perfectLoopMediaPlayer3.setVolume(1,1);
                             perfectLoopMediaPlayer4.setVolume(1,1);
@@ -258,7 +275,7 @@ public class MainActivity extends AppCompatActivity {
                             perfectLoopMediaPlayer9.setVolume(0,0);
                             perfectLoopMediaPlayer10.setVolume(0,0);
                         }
-                        else if (currDistance < 50){
+                        else if (currDistance < 60){
                             perfectLoopMediaPlayer2.setVolume(1,1);
                             perfectLoopMediaPlayer3.setVolume(1,1);
                             perfectLoopMediaPlayer4.setVolume(1,1);
@@ -269,7 +286,7 @@ public class MainActivity extends AppCompatActivity {
                             perfectLoopMediaPlayer9.setVolume(0,0);
                             perfectLoopMediaPlayer10.setVolume(0,0);
                         }
-                        else if (currDistance < 60){
+                        else if (currDistance < 70){
                             perfectLoopMediaPlayer2.setVolume(1,1);
                             perfectLoopMediaPlayer3.setVolume(1,1);
                             perfectLoopMediaPlayer4.setVolume(1,1);
@@ -280,7 +297,7 @@ public class MainActivity extends AppCompatActivity {
                             perfectLoopMediaPlayer9.setVolume(0,0);
                             perfectLoopMediaPlayer10.setVolume(0,0);
                         }
-                        else if (currDistance < 70){
+                        else if (currDistance < 80){
                             perfectLoopMediaPlayer2.setVolume(1,1);
                             perfectLoopMediaPlayer3.setVolume(1,1);
                             perfectLoopMediaPlayer4.setVolume(1,1);
@@ -291,7 +308,7 @@ public class MainActivity extends AppCompatActivity {
                             perfectLoopMediaPlayer9.setVolume(0,0);
                             perfectLoopMediaPlayer10.setVolume(0,0);
                         }
-                        else if (currDistance < 80){
+                        else if (currDistance < 90){
                             perfectLoopMediaPlayer2.setVolume(1,1);
                             perfectLoopMediaPlayer3.setVolume(1,1);
                             perfectLoopMediaPlayer4.setVolume(0,0);
@@ -302,7 +319,7 @@ public class MainActivity extends AppCompatActivity {
                             perfectLoopMediaPlayer9.setVolume(0,0);
                             perfectLoopMediaPlayer10.setVolume(0,0);
                         }
-                        else if (currDistance < 90){
+                        else if (currDistance < 100){
                             perfectLoopMediaPlayer2.setVolume(1,1);
                             perfectLoopMediaPlayer3.setVolume(0,0);
                             perfectLoopMediaPlayer4.setVolume(0,0);
@@ -313,7 +330,7 @@ public class MainActivity extends AppCompatActivity {
                             perfectLoopMediaPlayer9.setVolume(0,0);
                             perfectLoopMediaPlayer10.setVolume(0,0);
                         }
-                        else if (currDistance < 100){
+                        else if (currDistance < 110){
                             perfectLoopMediaPlayer2.setVolume(0,0);
                             perfectLoopMediaPlayer3.setVolume(0,0);
                             perfectLoopMediaPlayer4.setVolume(0,0);
