@@ -33,4 +33,13 @@
         android:onClick="stopGame"
         android:text="Stop Game" />
 
+    <TextView
+        android:id="@+id/txt_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="9dp"
+        android:layout_alignBottom="@+id/compass"
+        android:layout_toStartOf="@+id/btn_stop" />
+
 </RelativeLayout>

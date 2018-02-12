@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class GameActivity extends Activity implements SensorEventListener {
@@ -72,19 +73,11 @@ public class GameActivity extends Activity implements SensorEventListener {
         perfectLoopMediaPlayer9 = PerfectLoopMediaPlayer.create(this, R.raw.vocal9);
         perfectLoopMediaPlayer10 = PerfectLoopMediaPlayer.create(this, R.raw.guitars10);
 
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        if (!isLocationEnabled()) {
-            showAlert();
-        }
+        locationManager = LocationUtils.getLocationManager();
 
         TreasureLocation = LocationUtils.getTreasureLocation();
 
         startGame();
-    }
-
-    private boolean isLocationEnabled() {
-        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
-                locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
     }
 
     private void showAlert() {
@@ -107,16 +100,8 @@ public class GameActivity extends Activity implements SensorEventListener {
         dialog.show();
     }
 
-    private boolean checkLocation() {
-        if (!isLocationEnabled())
-            showAlert();
-        return isLocationEnabled();
-    }
 
     private void startGame() {
-        if (!checkLocation())
-            return;
-
         Criteria criteria = new Criteria();
         criteria.setAccuracy(Criteria.ACCURACY_FINE);
         criteria.setAltitudeRequired(false);
@@ -231,6 +216,8 @@ public class GameActivity extends Activity implements SensorEventListener {
                 @Override
                 public void run() {
                     double currDistance = location.distanceTo(TreasureLocation);
+
+                    ((TextView)findViewById(R.id.txt_distance)).setText("" + Math.round(currDistance));
 
                     if (currDistance < 10) {
                         perfectLoopMediaPlayer1.stop();

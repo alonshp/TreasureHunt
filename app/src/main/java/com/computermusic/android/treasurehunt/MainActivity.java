@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
+        LocationUtils.setLocationManager(locationManager);
 
         if (!isLocationEnabled()) {
             showAlert();
